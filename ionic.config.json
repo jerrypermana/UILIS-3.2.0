@@ -1,0 +1,7 @@
+{
+  "name": "uilisMobile",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
