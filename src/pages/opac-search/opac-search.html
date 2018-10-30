@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar color="primary" *ngIf="!searchBarAktif">
+    <ion-buttons left>
+      <button ion-button
+        icon-only
+        menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-title>
+      UILIS - OPAC
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button
+        icon-only
+        (click)="toggleSearchBar()">
+      <ion-icon name="search"></ion-icon>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar color="primary" *ngIf="searchBarAktif">
+    <ion-searchbar (search)="cari($event)" placeholder="Cari..."></ion-searchbar>
+    <ion-buttons end>
+      <button ion-button
+        icon-only
+        color="danger"
+        (click)="toggleSearchBar()">
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card *ngFor="let buku of bukus.data"
+    (click)="bukaDetail(buku.biblio_id)">
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          <img [src]="buku.gambar">
+        </ion-col>
+        <ion-col>
+          <h3><strong>{{ buku.title }}</strong></h3>
+          <p class="text-12 primary">{{ buku.author_name }}</p>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-row  *ngIf="loading">
+    <ion-col text-center>
+      <img src="assets/img/loading_book.gif">
+    </ion-col>
+  </ion-row>
+
+  <ion-row  *ngIf="no_data">
+    <ion-col text-center>
+      Hasil pencarian <strong>{{ query }}</strong> tidak ditemukan.
+    </ion-col>
+  </ion-row>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

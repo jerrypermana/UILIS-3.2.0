@@ -1,0 +1,22 @@
+page-profil {
+  .latar-baris {
+    background-image: url('../assets/img/perpustakaan.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .gambar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nama {
+    background-color:rgba(50,52,141,0.8) !important;
+    color: $warna-putih;
+  }
+
+  .header-baris {
+    height: 25%;
+  }
+}

@@ -1,0 +1,15 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>UILIS - ETD Full Text</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-row  *ngFor="let item of linkGambar">
+    <ion-col>
+      <img [src]="item.link" />
+    </ion-col>
+  </ion-row>
+</ion-content>

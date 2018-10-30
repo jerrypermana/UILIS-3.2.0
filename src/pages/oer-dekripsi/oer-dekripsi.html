@@ -1,0 +1,36 @@
+
+<ion-header>
+
+    <ion-navbar color="primary">
+      <ion-title>UILIS - Open Education Resources Description</ion-title>
+      <ion-buttons end>
+        <button ion-button
+          icon-only
+          (click)="tutup()">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+  
+    <ion-card>
+      <ion-card-content>
+        <ion-row>
+          <ion-col text-center text-wrap class="text-data">
+            <strong>{{ judul }}</strong>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col text-justify text-wrap>
+            {{ description }}
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  
+  </ion-content>
+  

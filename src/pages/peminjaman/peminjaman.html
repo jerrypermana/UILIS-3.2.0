@@ -1,0 +1,107 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button
+        icon-only
+        menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-title>
+      UILIS - Member
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button
+        icon-only
+        color="danger"
+        (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row *ngIf="adaData && !loading">
+    <ion-col text-center class="helper">
+      Geser buku ke kiri untuk perpanjang.
+    </ion-col>
+  </ion-row>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of dataPinjaman">
+      <ion-item>
+        <ion-row>
+          <ion-col col-4>
+            <img src="{{ item.image }}"/>
+          </ion-col>
+          <ion-col col-8 class="text-12" text-wrap>
+            <h3 style="font-size: 14px;"><strong>{{ item.title }}</strong></h3>
+            <ion-row>
+              <ion-col col-5>
+                <strong>Kode Buku</strong>
+              </ion-col>
+              <ion-col col-1>
+                :
+              </ion-col>
+              <ion-col col-6>
+                {{ item.item_code }}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-5>
+                <strong>Tanggal Peminjaman</strong>
+              </ion-col>
+              <ion-col col-1>
+                :
+              </ion-col>
+              <ion-col col-6>
+                {{ item.loan_date }}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-5>
+                <strong>Batas Pengembalian</strong>
+              </ion-col>
+              <ion-col col-1>
+                :
+              </ion-col>
+              <ion-col col-6>
+                {{ item.due_date }}
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button
+          color="secondary"
+          (click)="perpanjangBuku(item.renewed,item.loan_id,item.title)">
+          <ion-icon name="calendar"></ion-icon>
+          Perpanjang
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-row  *ngIf="loading">
+    <ion-col text-center>
+      <img src="assets/img/loading_book.gif">
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="!adaData">
+    <ion-col text-center>
+      Tidak ada buku yang dipinjam.
+    </ion-col>
+  </ion-row>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

@@ -1,3 +1,52 @@
 page-home {
+  .latar {
+    background-image: url('../assets/img/bg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
 
+  .isi > * {
+    display: flex!important;
+    align-content: center!important;
+    align-items: center!important;
+  }
+
+  .no-scroll .scroll-content{
+     overflow: hidden;
+  }
+
+  .baris-1 {
+    font-size: 25px;
+    color: black;
+  }
+
+  .baris-2 {
+    font-size: 20px;
+    color: black;
+  }
+
+  .baris-lanjut {
+    font-size: 15px;
+    color: black;
+  }
+  .btn {   
+    border: 2px solid grey;
+    background-color: white;
+    border-style: outset;
+    color: black;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+   .larger {
+    font-size: 30px;
+    } 
+    /* Gray */
+    .default {
+      border-color: #e7e7e7;
+      color: black;
+    }
+    .default:hover {
+      background: #e7e7e7;
+    }     
 }

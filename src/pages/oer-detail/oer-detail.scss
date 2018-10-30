@@ -1,0 +1,32 @@
+page-oer-detail {
+    ion-card-header {
+        background-color: map-get($colors, primary);
+        color: $warna-putih !important;
+      }
+    
+      .text-judul {
+        font-size: 14px;
+        color: map-get($colors, primary);
+      }
+    
+      .text-data {
+        font-size: 14px;
+        color: map-get($colors, biru-muda);
+      }
+    
+      .text-14 {
+        font-size: 14px;
+      }
+    
+      .text-merah {
+        color: map-get($colors, danger);
+      }
+    
+      .text-hijau {
+        color: map-get($colors, hijau);
+      }
+      .backgroundcolor{
+
+        background-color: #d1efd9;
+      }
+}

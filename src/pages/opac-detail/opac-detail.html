@@ -1,0 +1,191 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>UILIS - OPAC</ion-title>
+    <ion-buttons end>
+      <button ion-button
+        icon-only
+        (click)="tutup()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header
+      text-center
+      color="primary">
+      <strong>Detail Buku</strong>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-row>
+        <ion-col text-center
+          col-6
+          offset-3>
+          <img [src]="buku.image" width="40%">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h2 text-center text-wrap class="text-judul">
+            <strong>
+              {{ buku.title }}
+            </strong>
+          </h2>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 text-wrap text-right class="text-data">
+          <strong>Pengarang</strong>
+        </ion-col>
+        <ion-col col-1 class="text-data">
+          <strong>:</strong>
+        </ion-col>
+        <ion-col col-7 text-wrap class="text-data">
+          {{ buku.author_name }}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 text-wrap text-right>Edisi</ion-col>
+        <ion-col col-1>
+          <strong>:</strong>
+        </ion-col>
+        <ion-col col-7 text-wrap>
+          <p><strong>{{ buku.edition }}</strong></p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 text-wrap text-right>No. Panggil</ion-col>
+        <ion-col col-1>
+          <strong>:</strong>
+        </ion-col>
+        <ion-col col-7 text-wrap>
+          <p>{{ buku.call_number }}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 text-wrap text-right>Subyek</ion-col>
+        <ion-col col-1>
+          <strong>:</strong>
+        </ion-col>
+        <ion-col col-7 text-wrap>
+          <p *ngFor="let item of buku.subject"><span>{{item.topic}}</span></p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 text-wrap text-right>DDC</ion-col>
+        <ion-col col-1>
+          <strong>:</strong>
+        </ion-col>
+        <ion-col col-7 text-wrap>
+          <p>{{ buku.classification }}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 text-wrap text-right>Type</ion-col>
+        <ion-col col-1>
+          <strong>:</strong>
+        </ion-col>
+        <ion-col col-7 text-wrap>
+          <p>{{ buku.gmd_name }}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 text-wrap text-right>Bahasa</ion-col>
+        <ion-col col-1>
+          <strong>:</strong>
+        </ion-col>
+        <ion-col col-7 text-wrap>
+          <p>{{ buku.language_name }}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 text-wrap text-right>Penerbit</ion-col>
+        <ion-col col-1>
+          <strong>:</strong>
+        </ion-col>
+        <ion-col col-7 text-wrap>
+          <p>{{ buku.publisher_name}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 text-wrap text-right>Tahun Terbit</ion-col>
+        <ion-col col-1>
+          <strong>:</strong>
+        </ion-col>
+        <ion-col col-7 text-wrap>
+          <p>{{ buku.publish_year }}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 text-wrap text-right>Tempat Terbit</ion-col>
+        <ion-col col-1>
+          <strong>:</strong>
+        </ion-col>
+        <ion-col col-7 text-wrap>
+          <p>{{ buku.place_name }}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 text-wrap text-right>Deskripsi Fisik</ion-col>
+        <ion-col col-1>
+          <strong>:</strong>
+        </ion-col>
+        <ion-col col-7 text-wrap>
+          <p>{{ buku.collation }}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 text-wrap text-right>Ketersediaan</ion-col>
+        <ion-col col-1>
+          <strong>:</strong>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let item of buku.status">
+        <ion-col text-center>
+          {{ item.item_code }} -
+          <span *ngIf="item.status!='TERSEDIA'" class="text-merah">{{ item.status }}</span>
+          <span *ngIf="item.status=='TERSEDIA'" class="text-hijau">{{ item.status }}</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <button ion-button icon-only color="facebook" (click)="onShare('facebook')">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button icon-only color="twitter" (click)="onShare('twitter')">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button icon-only color="instagram" (click)="onShare('instagram')">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button icon-only color="whatsapp" (click)="onShare('whatsapp')">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <button ion-button icon-left color="share" (click)="onShare('')" block>
+            <ion-icon name="share"></ion-icon>
+            Aplikasi Lain
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

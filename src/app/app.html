@@ -1,1 +1,68 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="nav">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button
+        ion-item
+        icon-left
+        (click)="bukaHalaman(rootPage)">
+        <ion-icon name="home"></ion-icon>
+        Home
+      </button>
+      <button
+        ion-item
+        icon-left
+        (click)="bukaHalaman(opacPage)">
+        <ion-icon name="document"></ion-icon>
+        OPAC
+      </button>
+      
+      <button
+        ion-item
+        icon-left
+        (click)="bukaHalaman(etdPage)">
+        <ion-icon name="book"></ion-icon>
+        ETD
+      </button>
+      <button
+      ion-item
+      icon-left
+      (click)="bukaHalaman(oerPage)">
+      <ion-icon name="search"></ion-icon>
+      Open Education Resource
+    </button>
+
+    <button
+        ion-item
+        icon-left
+        (click)="bukaHalaman(loginPage)"
+        *ngIf="!isLogin">
+        <ion-icon name="person"></ion-icon>
+        Member
+      </button>
+
+      <button
+        ion-item
+        icon-left
+        (click)="bukaHalaman(regisPage)">
+        <ion-icon name="add-circle"></ion-icon>
+        Pendaftaran Anggota
+      </button>
+
+      <button
+      ion-item
+      icon-left
+      (click)="bukaHalaman(resetPassPage)">
+      <ion-icon name="md-refresh-circle"></ion-icon>
+      Lupa Kata sandi
+    </button>
+    
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #nav></ion-nav>

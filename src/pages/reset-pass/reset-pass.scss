@@ -1,0 +1,25 @@
+page-reset-pass {
+    .latar {
+        background-image: url('../assets/img/bg.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+    
+      .isi > * {
+        display: flex!important;
+        align-content: center!important;
+        align-items: center!important;
+      }
+    
+      .no-scroll .scroll-content{
+         overflow: hidden;
+      }
+    
+      .putih {
+        color: $warna-putih;
+      }
+    
+      .latar-transparan {
+        background:rgba(255,255,255,0.3) !important;
+      }
+}

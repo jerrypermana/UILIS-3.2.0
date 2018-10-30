@@ -1,0 +1,94 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button
+        icon-only
+        menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      UILIS - Member
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button
+        icon-only
+        color="danger"
+        (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-row class="latar-baris header-baris">
+    <ion-col text-center class="gambar">
+      <img *ngIf="!dataProfil.foto" src="assets/img/profil.png" width="100px"/>
+      <img *ngIf="dataProfil.foto" src="http://uilis.unsyiah.ac.id/uilis/images/persons/{{ dataProfil.member_image }}" width="100px" />
+
+      <p text-left class="nama" padding>
+        <strong>{{ dataProfil.member_name }}</strong>
+      </p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-4>
+      Tipe Anggota
+    </ion-col>
+    <ion-col col-1>:</ion-col>
+    <ion-col col-7>
+      {{ dataProfil.member_type_name }}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-4>
+      ID Anggota
+    </ion-col>
+    <ion-col col-1>:</ion-col>
+    <ion-col col-7>
+      {{ dataProfil.member_id }}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-4>
+      Email
+    </ion-col>
+    <ion-col col-1>:</ion-col>
+    <ion-col col-7>
+      {{ dataProfil.member_email }}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-4>
+      Instansi
+    </ion-col>
+    <ion-col col-1>:</ion-col>
+    <ion-col col-7>
+      {{ dataProfil.nama_prodi }}, {{ dataProfil.nama_jur }}, {{ dataProfil.fakultas_name }}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-4>
+      Registrasi
+    </ion-col>
+    <ion-col col-1>:</ion-col>
+    <ion-col col-7>
+      {{ dataProfil.register_date }}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-4>
+      Expire
+    </ion-col>
+    <ion-col col-1>:</ion-col>
+    <ion-col col-7>
+      {{ dataProfil.expire_date }}
+    </ion-col>
+  </ion-row>
+
+</ion-content>

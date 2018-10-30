@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button
+        icon-only
+        menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-title>
+      UILIS - Member
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="latar isi no-scroll" text-center>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h2 class="putih"><strong>Pendaftaran Anggota Pustaka</strong></h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <!-- <form #f="ngForm" (ngSubmit)="onRegis(f)"> -->
+           <form (ngSubmit)="saveEntry()">
+            <ion-item class="latar-transparan">
+              <ion-label floating class="putih">Masukkan Nomor Induk Mahasiswa (NIM)</ion-label>
+              <ion-input
+                type="number"
+                name="pin"
+                [(ngModel)]="member"
+                required></ion-input>
+            </ion-item>
+            
+            <ion-item class="latar-transparan">
+              <button ion-button
+                block
+                large
+                color="secondary">
+                Registrasi
+              </button>
+            </ion-item>
+          </form>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

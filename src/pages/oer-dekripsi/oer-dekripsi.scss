@@ -1,0 +1,11 @@
+page-oer-dekripsi {
+    ion-card-header {
+        background-color: map-get($colors, primary);
+        color: $warna-putih !important;
+      }
+    
+      .text-data {
+        font-size: 14px;
+        color: map-get($colors, biru-muda);
+      }
+}
